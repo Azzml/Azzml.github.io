@@ -16,17 +16,19 @@
   <meta name="author" content="Azzml">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PHP基础学习">
+    <meta name="description" content="PHP基础学习一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP基础学习一">
 <meta property="og:url" content="https://azzml.github.io/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/index.html">
 <meta property="og:site_name" content="Azzml">
-<meta property="og:description" content="PHP基础学习">
+<meta property="og:description" content="PHP基础学习一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://azzml.github.io/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/image-20230805104259969.png">
 <meta property="og:image" content="https://azzml.github.io/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/image-20230805144957203.png">
+<meta property="og:image" content="https://azzml.github.io/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/image-20230815151421698.png">
+<meta property="og:image" content="https://azzml.github.io/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/image-20230815152808156.png">
 <meta property="article:published_time" content="2023-08-05T01:53:02.000Z">
-<meta property="article:modified_time" content="2023-08-08T02:53:30.040Z">
+<meta property="article:modified_time" content="2023-08-15T15:51:31.363Z">
 <meta property="article:author" content="Azzml">
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.7k 字
         
       </span>
     
@@ -234,7 +236,7 @@
         
         
         
-          11 分钟
+          15 分钟
         
       </span>
     
@@ -289,7 +291,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="PHP基础学习"><a href="#PHP基础学习" class="headerlink" title="PHP基础学习"></a>PHP基础学习</h1><span id="more"></span>
+                <h1 id="PHP基础学习一"><a href="#PHP基础学习一" class="headerlink" title="PHP基础学习一"></a>PHP基础学习一</h1><span id="more"></span>
 
 <h2 id="一、php基础语法"><a href="#一、php基础语法" class="headerlink" title="一、php基础语法"></a>一、php基础语法</h2><p>php代码可放置于文档中的任何位置</p>
 <p>PHP 代码以 <em><?php* 开头，以 *?></em> 结尾，同时php代码可以嵌入到html代码当中。</p>
@@ -352,19 +354,20 @@ echo $a;
 
 <h2 id="五、运算符"><a href="#五、运算符" class="headerlink" title="五、运算符"></a>五、运算符</h2><h3 id="5-1-算术运算符"><a href="#5-1-算术运算符" class="headerlink" title="5.1 算术运算符"></a>5.1 算术运算符</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">+</span> - * /<br></code></pre></td></tr></table></figure>
 
+<p><img src="/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/image-20230815151421698.png" srcset="/img/loading.gif" lazyload alt="image-20230815151421698"></p>
+<h3 id="5-2-字符串运算符"><a href="#5-2-字符串运算符" class="headerlink" title="5.2 字符串运算符"></a>5.2 字符串运算符</h3><p>小数点：<span style="color:red;background:背景颜色;font-size:文字大小;font-family:字体;">.</span> </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs php">. 用来连接字符串<br><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$a</span> = <span class="hljs-string">&quot;Azzml&quot;</span>;<br><span class="hljs-variable">$b</span> = <span class="hljs-string">&quot;blog&quot;</span>;<br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$a</span>.<span class="hljs-variable">$b</span>;<br><span class="hljs-meta">?&gt;</span><br></code></pre></td></tr></table></figure>
 
+<p><img src="/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/image-20230815152808156.png" srcset="/img/loading.gif" lazyload alt="image-20230815152808156"></p>
+<h3 id="5-3-比较运算符"><a href="#5-3-比较运算符" class="headerlink" title="5.3 比较运算符"></a>5.3 比较运算符</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php">==：	值是否相等，若相等为<span class="hljs-literal">true</span>，若不等则为<span class="hljs-literal">false</span><br>===：全等(值要相等，类型也要相等)，若相等为<span class="hljs-literal">true</span>，若不等则为<span class="hljs-literal">false</span><br>!=：	值是否不相等，若不相等为<span class="hljs-literal">true</span>，若相等则为<span class="hljs-literal">false</span><br>&lt;&gt;：	值是否不相等，若不相等为<span class="hljs-literal">true</span>，若相等则为<span class="hljs-literal">false</span>	    <br>!==：值和类型不全等则为<span class="hljs-literal">true</span>，若两边全等为<span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
 
-
-
-
-
-
-
-
-
-
-
-
+<h3 id="5-4-逻辑运算符"><a href="#5-4-逻辑运算符" class="headerlink" title="5.4 逻辑运算符"></a>5.4 逻辑运算符</h3><ul>
+<li>与：and 或者&amp;&amp;，左右两边表达式的值均为true，最终的结果才为true，其他情况均为false</li>
+<li>或：or 或者||，左右两边表达式的值只要有一个是true，结果就为true，两边值均为false时，结果才为false</li>
+<li>异或：xor，左右两边表达式的值不一样时，结果为true，若一样，则结果为false</li>
+<li>非：！，将原来表达式的值取反，true转为false，false转为true</li>
+</ul>
+<h3 id="5-5-位运算符"><a href="#5-5-位运算符" class="headerlink" title="5.5 位运算符"></a>5.5 位运算符</h3>
                 
               </div>
             
@@ -410,6 +413,12 @@ echo $a;
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/08/15/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%BA%8C/" title="PHP基础学习二">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PHP基础学习二</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
