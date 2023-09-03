@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://azzml.github.io/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903174751139.png">
 <meta property="og:image" content="https://azzml.github.io/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903173031766.png">
 <meta property="article:published_time" content="2023-09-03T08:57:15.000Z">
-<meta property="article:modified_time" content="2023-09-03T11:20:58.118Z">
+<meta property="article:modified_time" content="2023-09-03T11:22:58.389Z">
 <meta property="article:author" content="Azzml">
 <meta property="article:tag" content="应急响应">
 <meta property="article:tag" content="Windows应急">
@@ -330,7 +330,7 @@
 <p>系统历史开关及记录：<br>LogParser.exe -i:EVT –o:DATAGRID “SELECT TimeGenerated,EventID,Message FROM c:\System.evtx where EventID&#x3D;6005 or EventID&#x3D;6006”</p>
 <p>%%2307代表账号被锁定。<br>EXTRACT_TOKEN(Strings,5,’|’)函数是提取Strings中以|为分隔符的第5个值。</p>
 <p>事件ID 	说明<br>1102	清理审计日志<br>4624	账号成功登陆<br>4625	账号登陆失败<br>4768	kerberos身份认证（TGT请求）<br>4769	kerberos服务票证请求<br>4776	NTLM身份验证<br>4672 	授予特殊权限<br>4720	创建用户<br>4726	删除用户<br>4728	将成员添加到启用安全的全局组中<br>4729	将成员从安全的全局组中移除<br>4732	将成员添加到启用安全的本地组中<br>4733	将成员从安全的本地组中移除<br>4756	将成员添加到启用安全的通用组中<br>4757	将成员从安全的通用组中移除<br>4719	系统审计策略修改</p>
-<h2 id="1-3-检查异常端口和进程"><a href="#1-3-检查异常端口和进程" class="headerlink" title="1.3 检查异常端口和进程"></a>1.3 检查异常端口和进程</h2>
+<h2 id="1-3-检查异常端口"><a href="#1-3-检查异常端口" class="headerlink" title="1.3 检查异常端口"></a>1.3 检查异常端口</h2>
                 
               </div>
             
