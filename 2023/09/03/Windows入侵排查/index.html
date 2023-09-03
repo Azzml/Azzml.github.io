@@ -16,22 +16,26 @@
   <meta name="author" content="Azzml">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PHP基础学习二">
+    <meta name="description" content="应急响应-windows入侵排查">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP基础学习二">
-<meta property="og:url" content="https://azzml.github.io/2023/08/15/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%BA%8C/index.html">
+<meta property="og:title" content="Windows入侵排查">
+<meta property="og:url" content="https://azzml.github.io/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/index.html">
 <meta property="og:site_name" content="Azzml">
-<meta property="og:description" content="PHP基础学习二">
+<meta property="og:description" content="应急响应-windows入侵排查">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-15T06:33:50.000Z">
-<meta property="article:modified_time" content="2023-08-15T06:35:43.505Z">
+<meta property="og:image" content="https://azzml.github.io/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903174751139.png">
+<meta property="og:image" content="https://azzml.github.io/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903173031766.png">
+<meta property="article:published_time" content="2023-09-03T08:57:15.000Z">
+<meta property="article:modified_time" content="2023-09-03T11:20:58.118Z">
 <meta property="article:author" content="Azzml">
-<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="应急响应">
+<meta property="article:tag" content="Windows应急">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://azzml.github.io/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903174751139.png">
   
   
   
-  <title>PHP基础学习二 - Azzml</title>
+  <title>Windows入侵排查 - Azzml</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="PHP基础学习二"></span>
+            <span id="subtitle" data-typed-text="Windows入侵排查"></span>
           
         </div>
 
@@ -208,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-08-15 14:33" pubdate>
-          2023年8月15日 下午
+        <time datetime="2023-09-03 16:57" pubdate>
+          2023年9月3日 下午
         </time>
       </span>
     
@@ -220,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8 字
+          1.9k 字
         
       </span>
     
@@ -231,7 +235,7 @@
         
         
         
-          1 分钟
+          16 分钟
         
       </span>
     
@@ -281,12 +285,52 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">PHP基础学习二</h1>
+            <h1 id="seo-header">Windows入侵排查</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="PHP基础学习二"><a href="#PHP基础学习二" class="headerlink" title="PHP基础学习二"></a>PHP基础学习二</h1><span id="more"></span>
+                <h1 id="应急响应-windows入侵排查"><a href="#应急响应-windows入侵排查" class="headerlink" title="应急响应-windows入侵排查"></a>应急响应-windows入侵排查</h1><span id="more"></span>
+
+<p>常见的应急响应事件分类</p>
+<p>web入侵：网页挂马、主页篡改、webshell</p>
+<p>系统入侵：病毒木马、勒索软件、远控后门</p>
+<p>网络攻击：DDOS共计、DNS劫持、ARP欺骗</p>
+<h1 id="0x01-入侵排查思路"><a href="#0x01-入侵排查思路" class="headerlink" title="0x01 入侵排查思路"></a>0x01 入侵排查思路</h1><h2 id="1-1-检查系统账号安全"><a href="#1-1-检查系统账号安全" class="headerlink" title="1.1 检查系统账号安全"></a>1.1 检查系统账号安全</h2><ol>
+<li><p>查看服务器是否有弱口令，远程的管理端口是否对公网开放</p>
+</li>
+<li><p>查看服务器是否存在可疑账号、新增账号</p>
+<ul>
+<li>打开cmd窗口，输入lusrmgr.msc命令，查看是否有新增&#x2F;可疑账号</li>
+</ul>
+</li>
+<li><p>查看服务器是否存在隐藏账号、克隆账号</p>
+<ul>
+<li>打开注册表，查看管理员对应键值：cmd-regedit</li>
+</ul>
+<p>\HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\Names</p>
+<p><img src="/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903174751139.png" srcset="/img/loading.gif" lazyload alt="image-20230903174751139"></p>
+<ul>
+<li><p>使用D盾_web查杀工具，它集成了对克隆账号检测的功能</p>
+<p><img src="/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5%5Cimage-20230903173031766.png" srcset="/img/loading.gif" lazyload alt="image-20230903173031766"></p>
+</li>
+</ul>
+</li>
+<li><p>结合日志，查看管理员登陆时间、用户名是否存在异常</p>
+<ul>
+<li>cmd-eventvwr.msc，打开事件管理器</li>
+<li>导出windows日志-安全，利用log parser进行分析</li>
+</ul>
+</li>
+</ol>
+<h2 id="1-2-日志审计-Log-Praser"><a href="#1-2-日志审计-Log-Praser" class="headerlink" title="1.2 日志审计-Log Praser"></a>1.2 日志审计-Log Praser</h2><h3 id="1-2-1-查询登陆成功的事件"><a href="#1-2-1-查询登陆成功的事件" class="headerlink" title="1.2.1 查询登陆成功的事件"></a>1.2.1 查询登陆成功的事件</h3><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs fortran"><br><span class="hljs-number">1</span>、登陆成功的所有事件：<br>LogParser.exe -i:EVT –o:DATAGRID  <span class="hljs-string">&quot;SELECT * FROM D:\Security.evtx where EventID=4624&quot;</span><br><span class="hljs-number">2</span>、指定登录时间范围的事件：<br>LogParser.exe -i:EVT –o:DATAGRID  <span class="hljs-string">&quot;SELECT * FROM D:\Security.evtx where TimeGenerated&gt;&#x27;2018-06-19 23:32:11&#x27; and TimeGenerated&lt;&#x27;2018-06-20 23:34:00&#x27; and EventID=4624&quot;</span><br><span class="hljs-number">3</span>、提取登陆成功的用户名和IP：<br>LogParser.exe -i:EVT –o:DATAGRID <span class="hljs-string">&quot;SELECT EXTRACT_TOKEN(Message,13,&#x27; &#x27;) as EventType,TimeGenerated as LoginTime,EXTRACT_TOKEN(Strings,5,&#x27;|&#x27;) as Username,EXTRACT_TOKEN(Message,38,&#x27; &#x27;) as Loginip FROM D:\Security.evtx where EventID=4624&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="1-2-2-查询登陆失败的事件"><a href="#1-2-2-查询登陆失败的事件" class="headerlink" title="1.2.2 查询登陆失败的事件"></a>1.2.2 查询登陆失败的事件</h3><figure class="highlight f#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs F#"><span class="hljs-number">1</span>、登陆失败的所有事件：<br>LogParser.exe <span class="hljs-operator">-</span>i<span class="hljs-operator">:</span>EVT –o<span class="hljs-operator">:</span>DATAGRID &quot;SELECT <span class="hljs-operator">*</span> FROM D<span class="hljs-operator">:</span>\<span class="hljs-built_in">lock</span>.evtx where EventID<span class="hljs-operator">=</span><span class="hljs-number">4625</span><span class="hljs-string">&quot;</span><br><span class="hljs-string">2、提取登录失败用户名进行聚合统计：</span><br><span class="hljs-string">LogParser.exe -i:EVT &quot;</span>SELECT EXTRACT_TOKEN(Strings,<span class="hljs-number">13</span>,<span class="hljs-string">&#x27;|&#x27;</span>)  <span class="hljs-keyword">as</span> EventType,EXTRACT_TOKEN(Strings,<span class="hljs-number">19</span>,<span class="hljs-string">&#x27;|&#x27;</span>) <span class="hljs-keyword">as</span> user,count(EXTRACT_TOKEN(Strings,<span class="hljs-number">19</span>,<span class="hljs-string">&#x27;|&#x27;</span>)) <span class="hljs-keyword">as</span> Times,EXTRACT_TOKEN(Strings,<span class="hljs-number">39</span>,<span class="hljs-string">&#x27;|&#x27;</span>) <span class="hljs-keyword">as</span> Loginip FROM D<span class="hljs-operator">:</span>\<span class="hljs-built_in">lock</span>.evtx where EventID<span class="hljs-operator">=</span><span class="hljs-number">4625</span> GROUP BY Strings<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>系统历史开关及记录：<br>LogParser.exe -i:EVT –o:DATAGRID “SELECT TimeGenerated,EventID,Message FROM c:\System.evtx where EventID&#x3D;6005 or EventID&#x3D;6006”</p>
+<p>%%2307代表账号被锁定。<br>EXTRACT_TOKEN(Strings,5,’|’)函数是提取Strings中以|为分隔符的第5个值。</p>
+<p>事件ID 	说明<br>1102	清理审计日志<br>4624	账号成功登陆<br>4625	账号登陆失败<br>4768	kerberos身份认证（TGT请求）<br>4769	kerberos服务票证请求<br>4776	NTLM身份验证<br>4672 	授予特殊权限<br>4720	创建用户<br>4726	删除用户<br>4728	将成员添加到启用安全的全局组中<br>4729	将成员从安全的全局组中移除<br>4732	将成员添加到启用安全的本地组中<br>4733	将成员从安全的本地组中移除<br>4756	将成员添加到启用安全的通用组中<br>4757	将成员从安全的通用组中移除<br>4719	系统审计策略修改</p>
+<h2 id="1-3-检查异常端口和进程"><a href="#1-3-检查异常端口和进程" class="headerlink" title="1.3 检查异常端口和进程"></a>1.3 检查异常端口和进程</h2>
                 
               </div>
             
@@ -304,7 +348,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/PHP/" class="category-chain-item">PHP</a>
+  <a href="/categories/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="category-chain-item">应急响应</a>
   
   
 
@@ -319,7 +363,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/PHP/" class="print-no-link">#PHP</a>
+        <a href="/tags/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="print-no-link">#应急响应</a>
+      
+        <a href="/tags/Windows%E5%BA%94%E6%80%A5/" class="print-no-link">#Windows应急</a>
       
     </div>
   
@@ -333,18 +379,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/" title="Windows入侵排查">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Windows入侵排查</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/05/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%B8%80/" title="PHP基础学习一">
-                        <span class="hidden-mobile">PHP基础学习一</span>
+                      <a href="/2023/08/15/PHP%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E4%BA%8C/" title="PHP基础学习二">
+                        <span class="hidden-mobile">PHP基础学习二</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
