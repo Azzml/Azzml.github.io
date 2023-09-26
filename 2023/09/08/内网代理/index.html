@@ -16,23 +16,26 @@
   <meta name="author" content="Azzml">
   <meta name="keywords" content="">
   
-    <meta name="description" content="应急响应-Linux入侵排查0x01">
+    <meta name="description" content="内网横向frpfrps.ini123456789101112131415[common]bind_addr &#x3D; 192.168.85.11（也就是服务端地址，kali）bind_port &#x3D; 7000dashboard_addr &#x3D; 服务端ipdashboard_port &#x3D; 5200dashboard_user &#x3D; admindashboard_pwd &#x3D; admin@134625dashboa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux入侵排查">
-<meta property="og:url" content="https://azzml.github.io/2023/09/05/Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/index.html">
+<meta property="og:title" content="内网横向一">
+<meta property="og:url" content="https://azzml.github.io/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="Azzml">
-<meta property="og:description" content="应急响应-Linux入侵排查0x01">
+<meta property="og:description" content="内网横向frpfrps.ini123456789101112131415[common]bind_addr &#x3D; 192.168.85.11（也就是服务端地址，kali）bind_port &#x3D; 7000dashboard_addr &#x3D; 服务端ipdashboard_port &#x3D; 5200dashboard_user &#x3D; admindashboard_pwd &#x3D; admin@134625dashboa">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-05T08:08:37.000Z">
-<meta property="article:modified_time" content="2023-09-05T08:28:08.663Z">
+<meta property="og:image" content="https://azzml.github.io/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926095637075.png">
+<meta property="og:image" content="https://azzml.github.io/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926095724211.png">
+<meta property="og:image" content="https://azzml.github.io/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926093013576.png">
+<meta property="article:published_time" content="2023-09-08T03:37:35.000Z">
+<meta property="article:modified_time" content="2023-09-26T02:01:13.313Z">
 <meta property="article:author" content="Azzml">
-<meta property="article:tag" content="应急响应">
-<meta property="article:tag" content="Linux应急">
+<meta property="article:tag" content="内网渗透">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://azzml.github.io/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926095637075.png">
   
   
   
-  <title>Linux入侵排查 - Azzml</title>
+  <title>内网横向一 - Azzml</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux入侵排查"></span>
+            <span id="subtitle" data-typed-text="内网横向一"></span>
           
         </div>
 
@@ -209,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-05 16:08" pubdate>
-          2023年9月5日 下午
+        <time datetime="2023-09-08 11:37" pubdate>
+          2023年9月8日 中午
         </time>
       </span>
     
@@ -221,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          18 字
+          1.2k 字
         
       </span>
     
@@ -232,7 +235,7 @@
         
         
         
-          1 分钟
+          10 分钟
         
       </span>
     
@@ -282,12 +285,32 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux入侵排查</h1>
+            <h1 id="seo-header">内网横向一</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="应急响应-Linux入侵排查"><a href="#应急响应-Linux入侵排查" class="headerlink" title="应急响应-Linux入侵排查"></a>应急响应-Linux入侵排查</h1><h2 id="0x01"><a href="#0x01" class="headerlink" title="0x01"></a>0x01</h2>
+                <h1 id="内网横向"><a href="#内网横向" class="headerlink" title="内网横向"></a>内网横向</h1><h2 id="frp"><a href="#frp" class="headerlink" title="frp"></a>frp</h2><h3 id="frps-ini"><a href="#frps-ini" class="headerlink" title="frps.ini"></a>frps.ini</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs makefile">[common]<br>bind_addr = 192.168.85.11（也就是服务端地址，kali）<br>bind_port = 7000<br><br>dashboard_addr = 服务端ip<br>dashboard_port = 5200<br>dashboard_user = admin<br>dashboard_pwd = admin@134625<br>dashboard_dir = ./static<br><br>配置完成后启动监听：./frps &amp;<br><br><span class="hljs-section">tips:</span><br>停止：ps -aux|grep frp| grep -v grep <span class="hljs-comment">#先找到pid号</span><br>kill -9 pid<br></code></pre></td></tr></table></figure>
+
+<h3 id="frpc-ini"><a href="#frpc-ini" class="headerlink" title="frpc.ini"></a>frpc.ini</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs makefile">frpc.ini：<br>[common]<br>server_addr = 192.168.85.11<br>server_port = 7000<br><br>[plugin_socks5]<br>type = tcp<br>remote_port = 7777 <span class="hljs-comment">#通信端口</span><br>plugin = socks5<br>plugin_user = admin<br>plugin_passwd = admin<br><br>配置完成后启动：frpc.exe -c frpc.ini<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="proxychains4"><a href="#proxychains4" class="headerlink" title="proxychains4"></a>proxychains4</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs awk">msf: vi <span class="hljs-regexp">/etc/</span>proxychains4.conf<br>在最后一行加入：<br>socks5 <span class="hljs-number">192.168</span>.<span class="hljs-number">85.11</span> <span class="hljs-number">7777</span>  <span class="hljs-comment">#这里的端口选择通信端口</span><br><br></code></pre></td></tr></table></figure>
+
+<h3 id="proxifier"><a href="#proxifier" class="headerlink" title="proxifier"></a>proxifier</h3><p>添加代理服务器，也就是kali：192.168.85.11</p>
+<p><img src="/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926095637075.png" srcset="/img/loading.gif" lazyload alt="image-20230926095637075"></p>
+<p>代理规则选择：</p>
+<p><img src="/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926095724211.png" srcset="/img/loading.gif" lazyload alt="image-20230926095724211"></p>
+<p>浏览器chrome.exe添加进去，就可以在windows访问内网网址。</p>
+<h2 id="ssh隧道技术"><a href="#ssh隧道技术" class="headerlink" title="ssh隧道技术"></a>ssh隧道技术</h2><h3 id="正向连接"><a href="#正向连接" class="headerlink" title="正向连接"></a>正向连接</h3><p><img src="/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/image-20230926093013576.png" srcset="/img/loading.gif" lazyload alt="image-20230926093013576"></p>
+<p>在web服务器上做正向连接</p>
+<p>ssh –CNfL 0.0.0.0:7777:10.10.10.128:80 <a href="mailto:&#114;&#x6f;&#111;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#56;&#x2e;&#48;&#46;&#49;&#x34;&#52;">&#114;&#x6f;&#111;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#56;&#x2e;&#48;&#46;&#49;&#x34;&#52;</a></p>
+<p>随后提示输入密码，便可</p>
+<p>C:压缩传输，提高传输速度<br>N:不执行远程命令，用于端口转发<br>L:本地端口转发<br>f:后台执行</p>
+<p>将10.10.10.128这台机器的80端口转发到192.168.0.144这台机器的7777端口上，</p>
+<h3 id="反向连接"><a href="#反向连接" class="headerlink" title="反向连接"></a>反向连接</h3><p>ssh -qTfnN -R port:host:hostport  remote_ip</p>
+<p>ssh –qTfnN –R 2222:127.0.0.1:22  <a href="mailto:&#x72;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#x30;&#46;&#49;&#x31;&#53;">&#x72;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#x32;&#46;&#49;&#x36;&#56;&#x2e;&#x30;&#46;&#49;&#x31;&#53;</a></p>
+<p>ssh –p 2222 <a href="mailto:&#x77;&#101;&#98;&#64;&#x31;&#x32;&#x37;&#x2e;&#x30;&#x2e;&#x30;&#46;&#49;">&#x77;&#101;&#98;&#64;&#x31;&#x32;&#x37;&#x2e;&#x30;&#x2e;&#x30;&#46;&#49;</a></p>
+
                 
               </div>
             
@@ -305,7 +328,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="category-chain-item">应急响应</a>
+  <a href="/categories/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="category-chain-item">内网渗透</a>
   
   
 
@@ -320,9 +343,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="print-no-link">#应急响应</a>
-      
-        <a href="/tags/Linux%E5%BA%94%E6%80%A5/" class="print-no-link">#Linux应急</a>
+        <a href="/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/" class="print-no-link">#内网渗透</a>
       
     </div>
   
@@ -336,9 +357,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/08/%E5%86%85%E7%BD%91%E4%BB%A3%E7%90%86/" title="内网横向一">
+                      <a href="/2023/09/22/PHP%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E4%B9%8B%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/" title="PHP代码审计之代码执行漏洞">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">内网横向一</span>
+                        <span class="hidden-mobile">PHP代码审计之代码执行漏洞</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -346,8 +367,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/09/03/Windows%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/" title="Windows入侵排查">
-                        <span class="hidden-mobile">Windows入侵排查</span>
+                      <a href="/2023/09/05/Linux%E5%85%A5%E4%BE%B5%E6%8E%92%E6%9F%A5/" title="Linux入侵排查">
+                        <span class="hidden-mobile">Linux入侵排查</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
